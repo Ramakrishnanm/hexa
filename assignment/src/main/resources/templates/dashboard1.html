@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>User Skill Rating</title>
+
+    <!-- Bootstrap core CSS -->
+     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+
+    <!-- Custom styles for this template -->
+     <link rel="stylesheet" th:href="@{/css/starter-template.css}"/>
+     
+    
+     <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}" />
+	
+		<script type="text/javascript">
+
+	    $(document).ready(function () {
+	        yourFunction();
+	    });
+
+		function yourFunction(){
+		 	alert("hi");
+		}
+		
+		function loadSkills() {
+			alert("load")
+		}
+		</script>    
+  </head>
+
+  <body onload="loadSkills()">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">[[${#httpServletRequest.remoteUser}]]!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form th:action="@{/logout}" method="post" class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <h1>User Skill Rating</h1>
+        <div id="skillDiv"></div>
+      </div>
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+  </body>
+</html>
