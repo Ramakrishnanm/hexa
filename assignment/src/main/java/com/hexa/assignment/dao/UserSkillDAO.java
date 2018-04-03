@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.hexa.assignment.model.Skill;
+import com.hexa.assignment.model.UserSkill;
 
 @Repository
 public class UserSkillDAO {
@@ -20,5 +21,12 @@ public class UserSkillDAO {
 
 		Query query = entityManager.createQuery("select s from Skill s");		
 		return (List<Skill>) query.getResultList();
+	}
+	
+	
+	public List<UserSkill> getUserSkills() {
+
+		Query query = entityManager.createQuery("select us from UserSkill us");		
+		return (List<UserSkill>) query.getResultList();
 	}
 }

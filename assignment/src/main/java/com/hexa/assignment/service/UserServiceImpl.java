@@ -2,9 +2,7 @@ package com.hexa.assignment.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
-import org.assertj.core.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,7 +24,7 @@ public class UserServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
 
 		User userByLoginId = userDAO.getUserByLoginId(loginId);
-		
+
 		GrantedAuthority authority = new  SimpleGrantedAuthority("USER");
 		Collection<GrantedAuthority> authorityList = new ArrayList<>();
 		authorityList.add(authority);
@@ -34,5 +32,4 @@ public class UserServiceImpl implements UserDetailsService {
 				new org.springframework.security.core.userdetails.User(userByLoginId.getLoginId(), userByLoginId.getPassword(), authorityList);
 		return user;
 	}
-
 }
